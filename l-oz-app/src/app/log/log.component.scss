@@ -1,0 +1,266 @@
+@import "../style-variables.scss";
+.container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  position: relative;
+  font-family: $fontmain;
+}
+
+.intro-part {
+  background-color: $mainColor;
+  height: 100vh;
+  grid-column: span 3;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffff;
+}
+
+.title {
+  z-index: 100;
+
+  h2 {
+    animation-timing-function: ease;
+    animation-duration: 1.2s;
+    animation-name: loz;
+    transform: translatey(-30rem);
+    animation-fill-mode: forwards;
+
+    @keyframes loz {
+      100% {
+        transform: translatey(0rem);
+      }
+    }
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  h1 {
+    animation-timing-function: ease-out;
+    animation-duration: 1.5s;
+    animation-name: loz;
+    transform: translatex(-90rem);
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    @keyframes loz {
+      100% {
+        transform: translatex(0rem);
+      }
+    }
+    text-transform: uppercase;
+  }
+}
+
+.circles {
+  position: absolute;
+}
+
+.circles div {
+  border-radius: 50%;
+}
+
+.center {
+  width: 15rem;
+  height: 15rem;
+  border: #b2bec3 0.04rem solid;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center :nth-child(1) {
+  width: 21rem;
+  height: 21rem;
+  border: #b2bec3c9 0.04rem solid;
+  position: absolute;
+}
+
+.center :nth-child(2) {
+  width: 26rem;
+  height: 26rem;
+  border: #b2bec38f 0.04rem solid;
+  position: absolute;
+}
+
+.center :nth-child(3) {
+  width: 31rem;
+  height: 31rem;
+  border: #b2bec33b 0.04rem solid;
+  position: absolute;
+}
+
+.icons {
+  position: absolute;
+  background-color: $mainColor;
+}
+
+.icons img:nth-child(1) {
+  background-color: rgba(255, 255, 255, 0.961);
+  border-radius: 50%;
+  position: relative;
+  width: 3.7rem;
+  top: 5.9rem;
+  left: 10.6rem;
+}
+
+.icons img:nth-child(2) {
+  background-color: rgba(255, 255, 255, 0.965);
+  border-radius: 50%;
+  position: relative;
+  width: 3.9rem;
+  bottom: 7.9rem;
+  right: 4rem;
+}
+
+.icons img:nth-child(3) {
+  background-color: rgba(51, 97, 29, 0.438);
+  border-radius: 50%;
+  position: relative;
+  width: 2.3rem;
+  bottom: -8.9rem;
+  right: 9rem;
+}
+
+.icons img:nth-child(4) {
+  background-color: rgba(0, 0, 0, 0.521);
+  border-radius: 50%;
+  position: relative;
+  width: 2.6rem;
+  bottom: 10rem;
+  right: -6.3rem;
+}
+
+.icons img:nth-child(5) {
+  background-color: rgba(255, 35, 35, 0.514);
+  border-radius: 50%;
+  position: relative;
+  width: 2.7rem;
+  bottom: 12.6rem;
+  right: 10rem;
+}
+
+.icons img:nth-child(6) {
+  background-color: rgba(207, 207, 207, 0.483);
+  border-radius: 50%;
+  position: relative;
+  width: 1.9rem;
+  bottom: -6rem;
+  right: -6.2rem;
+}
+
+.log-part {
+  height: 100vh;
+  grid-column: auto;
+  display: grid;
+  grid-template-rows: repeat(1fr, 5);
+}
+
+.name {
+  position: relative;
+  grid-row: span 3;
+
+  .name-container {
+    // display: flex;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    justify-content: center;
+
+    img {
+      width: 1.8rem;
+    }
+
+    h2 {
+      margin-left: -0.9rem;
+      position: relative;
+      color: $lighterMain;
+      text-transform: capitalize;
+      font-size: xx-large;
+    }
+  }
+}
+
+.name h2:before {
+  content: "";
+  width: 0.2rem;
+  // border-top: solid $mainColor 1rem ;
+  border-top: solid rgb(152, 169, 245) 1rem;
+  border-bottom: solid transparent 1px;
+  border-left: solid transparent 3px;
+  border-right: solid transparent 3px;
+
+  position: absolute;
+  top: -0.4rem;
+
+  right: 1.5rem;
+}
+
+form {
+  grid-row: 5;
+  text-align: center;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+input {
+  padding-left: 1.22rem;
+  height: 1.8rem;
+  margin-top: 1rem;
+  border-radius: 1.4rem;
+  border: solid 1px rgb(182, 181, 181);
+}
+
+.eInput {
+  border: $lighterMain 1px solid;
+}
+
+.submit {
+  button {
+    height: 2rem;
+    width: 11rem;
+    border: solid 1px rgb(182, 181, 181);
+    border-radius: 1.4rem;
+    margin-top: 1rem;
+    color: white;
+    text-transform: capitalize;
+    background-color: $lighterMain;
+  }
+}
+
+.email {
+  position: relative;
+
+  i {
+    position: absolute;
+    top: 55%;
+    left: 30%;
+    color: $lighterMain;
+    font-size: 0.9rem;
+  }
+}
+
+.pass {
+  position: relative;
+
+  i {
+    position: absolute;
+    top: 55%;
+    left: 30%;
+    color: rgb(167, 167, 167);
+    font-size: 0.8rem;
+  }
+}
+
+.can {
+  cursor: pointer;
+}
+
+input.ng-invalid.ng-touched {
+  border: red 1px solid;
+}

@@ -1,0 +1,13 @@
+@mixin sircle( $color , $size  ){
+  background-color: $color;
+  height: $size;
+  width: $size;
+  border-radius: 50%;
+  }
+
+  @mixin centrize  {
+display: flex;
+justify-content: center;
+align-items: center;
+
+  }

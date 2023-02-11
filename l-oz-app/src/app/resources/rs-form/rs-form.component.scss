@@ -1,0 +1,119 @@
+@import "../resources.component.scss";
+@import "../../style-variables.scss";
+
+.form-background {
+  font-family: $fontmain;
+  text-transform: capitalize;
+  position: absolute;
+  background-color: #000000a6;
+  width: 100vw;
+  height: 100vh;
+  left: 0%;
+  top: 0%;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  background-color: #ffffff;
+  width: 56%;
+  height: 53%;
+  border-radius: 0.8rem;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.change-form {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  .process-btns {
+    margin-top: 1rem;
+  }
+}
+
+form {
+  margin: auto;
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+input {
+  border: none;
+  border-bottom: 0.1rem $g3 solid;
+}
+
+.cancele,
+.send {
+  border: solid $lighterMain 0.08rem;
+  border-radius: 0.2rem;
+  width: 5rem;
+  height: 1.7rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.cancele {
+  color: $lighterMain;
+  background-color: #ffffff;
+}
+
+.send {
+  color: #ffffff;
+  background-color: $lighterMain;
+}
+
+.last-input {
+  grid-column: 1/3;
+  color: rebeccapurple;
+}
+
+.centring {
+  justify-content: center !important;
+  margin-right: 0;
+}
+
+.head {
+  position: relative;
+  .exit {
+    position: absolute;
+    right: 3%;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+}
+.exit:hover {
+  color: $mainColor;
+}
+
+.send-btns {
+  position: absolute;
+  bottom: 6%;
+  right: 6%;
+}
+
+.error {
+  font-size: x-small;
+  text-align: center;
+  position: absolute;
+  left: 15%;
+  bottom: 57%;
+  color: rgb(37, 173, 164);
+}
+.invalid {
+  background-color: rgba(30, 30, 248, 0.566);
+  cursor: text;
+}
+
+.head{
+  padding: 0.77rem !important;
+}
+
+i{
+  color:$darkColor
+}

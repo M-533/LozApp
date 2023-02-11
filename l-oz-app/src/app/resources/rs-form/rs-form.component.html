@@ -1,0 +1,76 @@
+<div class="form-background">
+  <div class="form-container head-hight">
+    <div class="head">
+      <i class="fa-solid fa-leaf"></i>
+
+      <span *ngIf="processNav == 'cataloge'">send new cataloge</span>
+      <span *ngIf="processNav == 'product'">send new product</span>
+      <div class="exit" (click)="closeForm()">x</div>
+    </div>
+    <div class="change-form">
+      <div class="process-btns">
+        <div
+
+          [ngClass]="{ activeProcess: processNav == 'cataloge' }"
+        >
+          add cataloge
+        </div>
+        <div [ngClass]="{ activeProcess: processNav == 'product' }">
+          add product
+        </div>
+      </div>
+    </div>
+    <form
+      [formGroup]="suppliesForm"
+      (ngSubmit)="addNew()"
+      *ngIf="processNav == 'cataloge'"
+    >
+      <input
+        maxlength="10"
+        type="text"
+        placeholder=" material name"
+        formControlName="materialName"
+      />
+
+      <input
+        type="text"
+        placeholder=" category"
+        formControlName="category"
+        maxlength="10"
+      />
+      <input
+        type="text"
+        placeholder=" item code"
+        formControlName="itemCode"
+        maxlength="10"
+      />
+      <input
+        maxlength="10"
+        type="text"
+        placeholder=" supplier code"
+        formControlName="supplierCode"
+      />
+      <div class="send-btns">
+        <button type="reset" class="cancele" (click)="closeForm()">
+          cancle
+        </button>
+        <button
+          type=" submit"
+          class="send"
+          [disabled]="suppliesForm.invalid"
+          [ngClass]="{ invalid: suppliesForm.invalid }"
+        >
+          add
+        </button>
+      </div>
+    </form>
+    <span
+      class="error"
+      (click)="(closeForm)"
+      *ngIf="suppliesForm.touched && suppliesForm!.invalid"
+      >* make sure that all inputs fields are not empty</span
+    >
+
+    <div class="send-container"></div>
+  </div>
+</div>

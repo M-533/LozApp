@@ -1,0 +1,784 @@
+<div class="parent">
+  <header>
+    <ul>
+      <i
+        (click)="onFlowChart()"
+        [ngClass]="{ 'active-header': manufacHead == 'flowChart' }"
+        >flow chart
+      </i>
+      <i
+        (click)="onJobOrder()"
+        (click)="jobOrders = true"
+        [ngClass]="{ 'active-header': manufacHead == 'jobOrder' }"
+        >job order</i
+      >
+      <i
+        (click)="onRoutes()"
+        [ngClass]="{ 'active-header': manufacHead == 'routes' }"
+        (click)="jobOrders = true"
+        >routes</i
+      >
+      <i
+        (click)="onProcess()"
+        [ngClass]="{ 'active-header': manufacHead == 'process' }"
+        (click)="jobOrders = true"
+        >process</i
+      >
+      <i style="cursor: text">OUTPUT</i>
+    </ul>
+  </header>
+  <div class="header">
+    <app-header></app-header>
+  </div>
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="resources-container">
+    <div class="extension">
+      <h4>
+        manufacturin
+        <span *ngIf="manufacHead == 'flowChart'"> / flow chart </span>
+        <span *ngIf="manufacHead == 'jobOrder'"> / job order</span>
+        <span *ngIf="manufacHead == 'routes'"> / routes</span>
+        <span *ngIf="manufacHead == 'process'"> / process</span>
+
+        <span *ngIf="manufacHead == 'scrap'"> product & scrap</span>
+      </h4>
+    </div>
+    <div
+      *ngIf="flowChart == false"
+      class="add"
+      [ngClass]="{ bigBtnActive: bigBtn }"
+    >
+      <button (click)="bigBtn = !bigBtn">
+        <span style="font-size: 1.3rem"
+          ><i style="font-size: 0.7rem" class="fa-solid fa-trowel"></i
+        ></span>
+
+        <span *ngIf="manufacHead == 'jobOrder'"> job order</span>
+        <span *ngIf="manufacHead == 'routes'"> routes</span>
+        <span *ngIf="manufacHead == 'process'"> process</span>
+      </button>
+    </div>
+    <div class="serach1" (click)="hideIcon = true">
+      <i class="fa-solid fa-magnifying-glass" *ngIf="!hideIcon"></i>
+      <input
+        type="search"
+        placeholder="             search by material name-type"
+      />
+    </div>
+    <div class="total-P alerts head-hight" *ngIf="flowChart == false">
+      <div class="head">
+        <img src="assets/jobOrder.png" />
+        <span>total job productions</span>
+      </div>
+      <div class="rate">
+        <div class="actual-production">
+          <div>3,020 <sub>km</sub></div>
+          <span>actual production</span>
+        </div>
+        <div class="planned-production">
+          <div>1,600 <sub>km</sub></div>
+          <span>planned production</span>
+        </div>
+      </div>
+      <div class="range">
+        <div></div>
+        75%
+      </div>
+    </div>
+    <div class="supplyvs head-hight" *ngIf="!bigBtn && flowChart == false">
+      <div class="head">
+        <i class="fa-solid fa-signal"></i>
+        <span> job order actual vs planned production</span>
+      </div>
+      <div class="job-orders">
+        <div class="order">
+          <div class="columns">
+            <div style="height: 80%"></div>
+            <div style="height: 50%"></div>
+          </div>
+          <div class="order-name">jpb order name</div>
+        </div>
+        <div class="order">
+          <div class="columns">
+            <div style="height: 70%"></div>
+            <div style="height: 70%"></div>
+          </div>
+          <div class="order-name">jpb order name</div>
+        </div>
+        <div class="order">
+          <div class="columns">
+            <div style="height: 60%"></div>
+            <div style="height: 30%"></div>
+          </div>
+          <div class="order-name">jpb order name</div>
+        </div>
+        <div class="order">
+          <div class="columns">
+            <div style="height: 20%"></div>
+            <div style="height: 58%"></div>
+          </div>
+          <div class="order-name">jpb order name</div>
+        </div>
+        <div class="order">
+          <div class="columns">
+            <div style="height: 70%"></div>
+            <div style="height: 58%"></div>
+          </div>
+          <div class="order-name">jpb order name</div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="bigBtn && flowChart == false" style="position: relative" class="head-hight">
+      <div class="head">
+        <img src="assets/ranges.png" /><span
+          >performance indicator KPI</span
+        >
+      </div>
+      <div class="circle-wrapper">
+        <circle-progress
+          [percent]="38"
+          [space]="-8"
+          [radius]="30"
+          [outerStrokeWidth]="7"
+          [innerStrokeWidth]="7"
+          [outerStrokeColor]="' rgb(54, 145, 245)'"
+          [innerStrokeColor]="'#e7e8ea'"
+          [animation]="true"
+        ></circle-progress>
+
+        <div class="betweenSircles" style="position: absolute">
+          <circle-progress
+            [percent]="45"
+            [space]="-8"
+            [radius]="20"
+            [outerStrokeWidth]="7"
+            [innerStrokeWidth]="7"
+            [outerStrokeColor]="' #15aaa3ef'"
+            [innerStrokeColor]="'#e7e8ea'"
+            [titleFontSize]="'8'"
+            [subtitleFontSize]="'5'"
+            [subtitleColor]="'#15aaa3ef'"
+            [animation]="true"
+          ></circle-progress>
+          <div></div>
+        </div>
+
+        <circle-progress
+          [percent]="59"
+          [space]="-8"
+          [radius]="30"
+          [outerStrokeWidth]="7"
+          [innerStrokeWidth]="7"
+          [outerStrokeColor]="' #2d62ed '"
+          [innerStrokeColor]="'#e7e8ea'"
+          [animation]="true"
+          [animationDuration]="1560"
+        ></circle-progress>
+      </div>
+    </div>
+
+    <div *ngIf="bigBtn && flowChart == false">
+      <div class="total-P alerts head-hight">
+        <div class="head">
+          <img src="assets/jobOrder.png" />
+          <span>total job productions</span>
+        </div>
+        <div class="rate">
+          <div class="actual-production">
+            <div>8,020 <sub>km</sub></div>
+            <span>actual production</span>
+          </div>
+          <div class="planned-production">
+            <div>2,600 <sub>km</sub></div>
+            <span>planned production</span>
+          </div>
+        </div>
+        <div style="margin-top: 1rem" class="range">
+          <div></div>
+          75%
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alerts right-bar head-hight" *ngIf="flowChart == false">
+      <div class="head alertNtif">
+        <div
+          (click)="alertsheader = !alertsheader"
+          [ngClass]="{ alertActiv: alertsheader == true }"
+        >
+          <div class="point"></div>
+          <span class="alert-title">alerts</span>
+        </div>
+        <div
+          (click)="alertsheader = !alertsheader"
+          [ngClass]="{ notifActiv: alertsheader == false }"
+        >
+          <div class="point"></div>
+          <span class="alert-title">notifications</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="icon-alert">
+          <i *ngIf="alertsheader == true" class="fa-solid fa-leaf"></i>
+          <i
+            *ngIf="alertsheader == false"
+            class="fa-solid fa-circle-exclamation"
+          ></i>
+          <span class="alert-type">machenes</span>
+        </div>
+        <div class="message-id-cont">
+          <span class="message">confirm loz on machine</span>
+          <div class="id"><span>ID</span> <span>53362005</span></div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon-alert">
+          <i *ngIf="alertsheader == true" class="fa-solid fa-leaf"></i>
+          <i
+            *ngIf="alertsheader == false"
+            class="fa-solid fa-circle-exclamation"
+          ></i>
+          <span class="alert-type">machenes</span>
+        </div>
+        <div class="message-id-cont">
+          <span class="message">confirm loz on machine</span>
+          <div class="id"><span>ID</span> <span>53362005</span></div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon-alert">
+          <i class="fa-solid fa-leaf"></i>
+          <span class="alert-type">machenes</span>
+        </div>
+        <div class="message-id-cont">
+          <span class="message">confirm loz on machine</span>
+          <div class="id"><span>ID</span> <span>53362005</span></div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon-alert">
+          <i class="fa-solid fa-leaf"></i>
+          <span class="alert-type">machenes</span>
+        </div>
+        <div class="message-id-cont">
+          <span class="message">confirm loz on machine</span>
+          <div class="id"><span>ID</span> <span>53362005</span></div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="icon-alert">
+          <i class="fa-solid fa-leaf"></i>
+          <span class="alert-type">machenes</span>
+        </div>
+        <div class="message-id-cont">
+          <span class="message">confirm loz on machine</span>
+          <div class="id"><span>ID</span> <span>53362005</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tops head-hight" *ngIf="!bigBtn && flowChart == false">
+      <div class="head tops-head">
+        <i class="fa-solid fa-caret-left"></i>
+        <span>Recent job orders </span>
+      </div>
+      <div class="suppliers">
+        <div class="supp-container">
+          <div class="supplier">
+            <div
+              class="point long-point"
+              style="background-color: #ec5967"
+            ></div>
+            <div class="supp-data">
+              <div class="supp-name">job order</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <div class="id">002533</div>
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div
+              class="point long-point"
+              style="background-color: #c24854"
+            ></div>
+            <div class="supp-data">
+              <div class="supp-name">job order</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <div class="id">002533</div>
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div
+              class="point long-point"
+              style="background-color: #9b3842"
+            ></div>
+            <div class="supp-data">
+              <div class="supp-name">job order</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <div class="id">002533</div>
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div
+              class="point long-point"
+              style="background-color: #003f5cd8"
+            ></div>
+            <div class="supp-data">
+              <div class="supp-name">job order</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <div class="id">002533</div>
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div
+              class="point long-point"
+              style="background-color: #003f5ca9"
+            ></div>
+            <div class="supp-data">
+              <div class="supp-name">job order</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <div class="id">002533</div>
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div
+              class="point long-point"
+              style="background-color: #003f5c67"
+            ></div>
+            <div class="supp-data">
+              <div class="supp-name">job order</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <div class="id">002533</div>
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tops head-hight" *ngIf="bigBtn && flowChart == false">
+      <div class="head tops-head">
+        <i class="fa-solid fa-arrow-up"></i>
+        <i class="fa-solid fa-arrow-down"></i>
+        <span>top 3 / least 3 </span>
+      </div>
+      <div class="suppliers">
+        <div class="supp-container">
+          <div class="supplier">
+            <div class="point" style="background-color: #ec5967"></div>
+            <div class="supp-data">
+              <div class="supp-name">supplier name</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div class="point" style="background-color: #c24854"></div>
+            <div class="supp-data">
+              <div class="supp-name">supplier name</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div class="point" style="background-color: #9b3842"></div>
+            <div class="supp-data">
+              <div class="supp-name">supplier name</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div class="point" style="background-color: #003f5cd8"></div>
+            <div class="supp-data">
+              <div class="supp-name">supplier name</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div class="point" style="background-color: #003f5ca9"></div>
+            <div class="supp-data">
+              <div class="supp-name">supplier name</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+          <div class="supplier">
+            <div class="point" style="background-color: #003f5c67"></div>
+            <div class="supp-data">
+              <div class="supp-name">supplier name</div>
+              <small>material</small>
+              <small>price</small>
+            </div>
+            <div class="supp-id">
+              <small>alumin</small>
+              <small>1000</small>
+            </div>
+          </div>
+        </div>
+        <div class="distances">
+          <div class="spaces">
+            <div class="space">
+              900<span>km</span>
+              ---
+            </div>
+            <div class="space">
+              800<span>km</span>
+              ---
+            </div>
+            <div class="space">
+              600<span>km</span>
+              ---
+            </div>
+            <div class="space">
+              400<span>km</span>
+              ---
+            </div>
+            <div class="space">
+              300<span>km</span>
+              ---
+            </div>
+            <div class="space">
+              100<span>km</span>
+              ---
+            </div>
+          </div>
+          <div class="color-type"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="materials-container" *ngIf="flowChart == false">
+      <div class="head head-mats">
+        <div class="material-title" *ngIf="manufacHead == 'jobOrder'">
+          <img src="assets/jobOrder.png" />
+          <h5>job order</h5>
+        </div>
+        <div class="material-title" *ngIf="manufacHead == 'routes'">
+          <i style="margin-right: 0.7rem" class="fa-solid fa-route"></i>
+          <h5>routes</h5>
+        </div>
+        <div class="material-title" *ngIf="manufacHead == 'process'">
+          <i style="margin-right: 0.7rem" class="fa-solid fa-sliders"></i>
+          <h5>process</h5>
+        </div>
+        <div class="nav">
+          <div
+            [ngClass]="{ activey: jobOrders == true }"
+            (click)="jobOrders = !jobOrders"
+            class="nav-item"
+          >
+            <i class="fa-solid fa-list-ul"></i>
+            <span>products list</span>
+          </div>
+          <div
+            class="nav-item"
+            [ngClass]="{ activey: jobOrders == false }"
+            (click)="jobOrders = !jobOrders"
+          >
+            <i class="fa-solid fa-chart-line"></i>
+            <span>products chart</span>
+          </div>
+        </div>
+      </div>
+      <div class="table-container" *ngIf="jobOrders == true">
+        <table *ngIf="manufacHead == 'jobOrder' || manufacHead == 'process'">
+          <tr style="border-bottom: #b2bec3 solid 0.15rem">
+            <th>order Id</th>
+            <th>starting date</th>
+            <th>state</th>
+            <th>client</th>
+            <th>sales</th>
+            <th>product</th>
+            <th>route Id</th>
+          </tr>
+          <tbody *ngFor="let order of orders">
+            <tr>
+              <td>{{ order.id }}</td>
+              <td>{{ order.date | date }}</td>
+              <td>
+                <img src="assets/state.png" width="15rem" />
+              </td>
+              <td>{{ order.client }}</td>
+              <td>{{ order.sales }}</td>
+              <td>{{ order.product }}</td>
+              <td>{{ order.id2 }}</td>
+              <div class="icons-wrapper">
+                <img src="assets/leave.png" width="15rem" />
+
+                <img src="assets/total.png" width="15rem" />
+
+                <i
+                  class="fa-solid fa-sliders"
+                  *ngIf="manufacHead == 'jobOrder'"
+                ></i>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+
+        <table *ngIf="manufacHead == 'routes'">
+          <tr style="border-bottom: #b2bec3 solid 0.15rem">
+            <th>starting date</th>
+            <th>function</th>
+            <th>
+              consumption
+              <span>actual | planned</span>
+            </th>
+            <th>material</th>
+            <th>product</th>
+            <th>production <span>actual | planned</span></th>
+            <th>worker</th>
+          </tr>
+          <tbody *ngFor="let order of nestedOrders">
+            <tr>
+              <td>some data</td>
+              <td>{{ order.date | date }}</td>
+              <td>{{ order.pro }}</td>
+              <td>
+                {{ order.material }}
+              </td>
+              <td>{{ order.material }}</td>
+              <td>{{ order.func }}</td>
+
+              <td>{{ order.worker }}</td>
+              <div class="icons-wrapper">
+                <img src="assets/leave.png" width="15rem" />
+
+                <img src="assets/total.png" width="15rem" />
+
+                <i class="fa-solid fa-sliders"></i>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="jobOrders == false && showBar">
+        <app-chart4></app-chart4>
+      </div>
+
+      <div
+        class="charts bubbles"
+        *ngIf="jobOrders == false && showBar == false"
+      >
+        <div class="route">
+          <div class="route-number">process 05</div>
+          <div class="route-line">
+            <div class="line">
+              <div class="amount c" style="background-image: none"></div>
+            </div>
+          </div>
+        </div>
+        <div class="route">
+          <div class="route-number">process 04</div>
+          <div class="route-line">
+            <div class="line">
+              <div class="amount c" style="background-image: none"></div>
+            </div>
+          </div>
+        </div>
+        <div class="route">
+          <div class="route-number">process 03</div>
+          <div class="route-line">
+            <div class="line">
+              <div class="amount c" style="background-image: none"></div>
+            </div>
+          </div>
+        </div>
+        <div class="route">
+          <div class="route-number">process 02</div>
+          <div class="route-line">
+            <div class="line">
+              <div class="amount c" style="background-image: none"></div>
+            </div>
+          </div>
+        </div>
+        <div class="route">
+          <div class="route-number">process 01</div>
+          <div class="route-line">
+            <div class="line">
+              <div class="amount c" style="background-image: none"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-page" *ngIf="flowChart == true">
+      <div class="flow-chart head-hight">
+        <div class="head">
+          <i class="fa-brands fa-pagelines"></i> <span>product flow</span>
+        </div>
+        <div class="product-flow">
+          <img src="assets/product-flowy.png" width="66%"     />
+        </div>
+      </div>
+
+      <div class="lables-container">
+        <div class="flow-chart head-hight">
+          <div class="head">
+            <i class="fa-solid fa-droplet"></i> <span>lables</span>
+          </div>
+        </div>
+
+        <div class="lables">
+          <div class="lable1"></div>
+          <span>job order</span>
+          <div class="lable2"></div>
+          <span>routes</span>
+
+          <div class="lable3">
+            <div
+              style="left: 0rem; background-color: #ac4e57"
+              class="small-circle"
+            ></div>
+            <div
+              style="left: 0.4rem; background-color: #cf848b"
+              class="small-circle"
+            ></div>
+            <div
+              style="left: 0.8rem; background-color: #6bc2a5"
+              class="small-circle"
+            ></div>
+            <div
+              style="left: 1.2rem; background-color: #6b8bc2"
+              class="small-circle"
+            ></div>
+            <div
+              style="left: 1.8rem; background-color: #634f8d"
+              class="small-circle"
+            ></div>
+          </div>
+          <span>done process</span>
+
+          <div class="lable4">
+            <div
+              style="left: 0rem; border-color: #ac4e57"
+              class="border-circle"
+            ></div>
+            <div
+              style="left: 0.4rem; border-color: #cf848b"
+              class="border-circle"
+            ></div>
+            <div
+              style="left: 0.8rem; border-color: #6bc2a5"
+              class="border-circle"
+            ></div>
+            <div
+              style="left: 1.2rem; border-color: #6b8bc2"
+              class="border-circle"
+            ></div>
+            <div
+              style="left: 1.8rem; border-color: #634f8d"
+              class="border-circle"
+            ></div>
+          </div>
+          <span>pending process</span>
+          <div class="lable5">-----</div>
+          <span>sub product</span>
+          <div class="lable6">-----</div>
+          <span>product</span>
+          <div class="lable7">-----</div>
+          <span>scrap</span>
+        </div>
+        <hr />
+
+        <div class="functions-lables">
+          <h6>functions</h6>
+          <div class="balles-labels">
+            <div class="ball" style="background-color: #ca4e82"></div>
+            <div>function name</div>
+            <div class="ball" style="background-color: #634f8d"></div>
+            <div>function name</div>
+            <div class="ball" style="background-color: #25b09d"></div>
+            <div>function name</div>
+            <div class="ball" style="background-color: #45dbc7"></div>
+            <div>function name</div>
+            <div class="ball" style="background-color: #f8c945"></div>
+            <div>function name</div>
+            <div class="ball" style="background-color: #ffe346"></div>
+            <div>function name</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="layers">
+        <div class="flow-chart head-hight">
+          <div class="head">
+            <i class="fa-solid fa-eye"></i> <span> layers </span>
+          </div>
+        </div>
+        <div class="layers-wrapper">
+          <div class="layer"></div>
+          <span>job order</span>
+          <div class="layer"></div>
+          <span>sub-product</span>
+          <div class="layer"></div>
+          <span>route</span>
+          <div class="layer"></div>
+          <span>product</span>
+          <div class="layer"></div>
+          <span>done process</span>
+          <div class="layer"></div>
+          <span>scrap</span>
+          <div class="layer"></div>
+          <span>pending process</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="manufacHead == 'flowChart'" class="tran-back"></div>

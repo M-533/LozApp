@@ -1,0 +1,726 @@
+@use "../dashboard/dashboard.component.scss";
+@import "../style-variables.scss";
+@import "../mixins.scss";
+
+.parent {
+  display: grid;
+  grid-template-columns: 14rem 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(1fr, 10);
+  font-family: $fontmain;
+  text-transform: capitalize;
+  background-color: $backgroundColor;
+}
+
+.header {
+  grid-column: 2/8;
+  grid-row: 2/2;
+}
+
+.sidebar {
+  grid-column: 1/2;
+  grid-row: 1/9;
+}
+
+header {
+  grid-column: 2/8;
+  background-color: white;
+  color: $darkColor;
+  box-shadow: $g3 -1px 1px 2px 0px;
+  z-index: 3;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    height: 100%;
+    i {
+      cursor: pointer;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      // padding-top:2rem ;
+    }
+  }
+}
+.active-header {
+  font-weight: bold;
+  position: relative;
+}
+.active-header::after {
+  content: "";
+  width: 100%;
+  height: 0.4rem;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background-color: $mainColor;
+}
+
+.resources-container > div:not(:first-child, :nth-child(2), .flow-page) {
+  background-color: white;
+  box-shadow: #00000024 0px 0px 20px 0px;
+  border-radius: 0.8rem;
+}
+.resources-container {
+  grid-column: 2/8;
+  grid-row: 3/9;
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 13rem 19rem 19rem (minmax(15rem, 1fr));
+  grid-template-rows: 2rem 10rem 2rem 16rem;
+  grid-template-areas:
+    "exte exte  add serch"
+    "tot  supplyvs supplyvs alert"
+    "mats mats mats alert "
+    "mats mats mats tops";
+  gap: 1rem;
+}
+
+h4 {
+  font-size: 0.85rem;
+}
+
+.total-p {
+  grid-area: tot;
+  width: 100%;
+  height: 100;
+}
+
+.extension {
+  grid-area: exte;
+  display: flex;
+  align-items: center;
+}
+
+.add {
+  grid-area: add;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: small;
+    background-color: $lighterMain;
+    border: none;
+    border-radius: 0.5rem;
+    color: #ffff;
+    width: 40%;
+    height: 100%;
+    cursor: pointer;
+    margin-left: 0.51rem;
+  }
+}
+.process-btns {
+  display: flex;
+  font-size: x-small;
+  align-items: center;
+  justify-content: space-between;
+  color: $darkColor;
+  width: 11rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  background-color: white;
+  box-shadow: #00000024 0px 0px 20px 0px;
+  border-radius: 0.5rem;
+  div {
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+}
+.activeProcess {
+  background-color: $lighterMain;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.serach1 {
+  grid-area: serch;
+  position: relative;
+  input {
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  i {
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    color: $g3;
+  }
+}
+::placeholder {
+  color: $g3;
+}
+
+.supplyvs {
+  grid-area: supplyvs;
+
+  i {
+    color: rgba(0, 0, 0, 0.644);
+    font-size: smaller;
+  }
+}
+
+.alert {
+  grid-area: alert;
+}
+
+.tops-head {
+  font-size: small;
+  color: $darkColor;
+}
+
+.suppliers {
+  margin: 0.5rem;
+  display: grid;
+  grid-template-columns: 57% 1fr;
+  font-size: xx-small;
+  height: 1rem;
+  grid-template-areas: "s s d";
+}
+
+.supp-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.supplier {
+  display: grid;
+  grid-template-columns: 10% 70% 30%;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.point {
+  display: flex;
+  align-self: center;
+  margin-left: 0.3rem;
+}
+
+.supp-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.supp-name {
+  font-size: 0.6rem;
+}
+
+.supp-id {
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  .id {
+    font-weight: bold;
+    font-size: 0.5rem;
+  }
+
+  small {
+    font-size: 0.4rem;
+  }
+}
+
+small {
+  font-size: 0.4rem;
+}
+
+.distances {
+  grid-area: d;
+  max-width: 100%;
+  display: flex;
+}
+
+.color-type {
+  height: 98%;
+  width: 1rem;
+  background-image: linear-gradient(
+    to bottom,
+    #e45563 16.5%,
+    #c24854 16.5%,
+    #c24854 33%,
+    #9b3842 33%,
+    #9b3842 49.5%,
+    #003f5cd8 49.5%,
+    #003f5cd8 66%,
+    #003f5ca9 66%,
+    #003f5ca9 82.5%,
+    #003f5c67 82.5%
+  );
+
+  border-radius: 0.2rem;
+}
+
+.spaces {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 0;
+  height: 89%;
+}
+
+.space {
+  margin-top: 0.13rem;
+  font-size: 0.5rem;
+}
+
+.materials-container {
+  grid-area: mats;
+}
+
+.head-mats {
+  display: flex;
+  justify-content: space-between;
+  height: 2.6rem;
+}
+
+.material-title {
+  display: flex;
+  align-items: center;
+  color: $darkColor;
+  font-size: 0.9rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+  margin-right: 3rem;
+}
+
+.nav-item {
+  padding: 0.79rem;
+  font-size: small;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  z-index: 3;
+  cursor: pointer;
+  i {
+    color: $g3;
+  }
+  span {
+    color: $g3;
+    font-size: 0.65rem;
+  }
+}
+
+.activey {
+  border-bottom: $mainColor 0.1rem solid;
+
+  span {
+    font-weight: bold;
+    color: $lighterMain;
+    background-image: linear-gradient();
+  }
+
+  i {
+    color: $mainColor;
+  }
+}
+
+.charts {
+  margin-top: 2.3rem;
+}
+
+.line {
+  .amounty {
+    background-color: $lightest;
+    width: 9rem;
+    height: 0.7rem;
+    position: relative;
+    bottom: 0.37rem;
+    left: 10%;
+  }
+
+  .amounty2 {
+    background-color: $lightest;
+    width: 9rem;
+    height: 1rem;
+    position: relative;
+    bottom: 0.5rem;
+    left: 10%;
+  }
+
+  .amounty3 {
+    background-color: $lightest;
+    width: 9rem;
+    height: 1.6rem;
+    position: relative;
+    bottom: 0.6rem;
+    left: 100%;
+  }
+
+  .amounty4 {
+    background-color: $lightest;
+    width: 9rem;
+    height: 0.7rem;
+    position: relative;
+    bottom: -0.7rem;
+    left: 200%;
+  }
+}
+
+.materials-container {
+  input {
+    margin-top: 1rem;
+    margin-left: 10%;
+    border: none;
+    border-bottom: solid $g3 0.1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+table::-webkit-scrollbar {
+  background-color: #dadada96;
+  width: 0.3rem;
+  scroll-behavior: smooth;
+}
+table::-webkit-scrollbar-thumb {
+  background-color: #003f5c;
+}
+
+.main-table {
+  display: block;
+  width: 80%;
+  border-collapse: collapse;
+  margin: auto;
+  overflow-y: auto;
+  position: relative;
+  height: 12rem;
+  .pt {
+    position: absolute;
+    bottom: 41%;
+    left: 1rem;
+    background-color: #0b7cb1;
+    width: 0.55rem;
+    height: 0.55rem;
+  }
+
+  th {
+    color: $darkColor;
+    width: 25%;
+    font-size: 0.59rem;
+    padding-bottom: 0.7rem;
+  }
+
+  tr {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .table-data {
+    border-top: solid $g3 1px;
+    width: 42rem;
+    cursor: pointer;
+  }
+
+  td {
+    width: 25%;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    font-size: 0.55rem;
+  }
+}
+
+.nested-table {
+  width: 90%;
+  margin: auto;
+  .thr {
+    border-bottom: solid $g3 0.05rem !important ;
+  }
+  th {
+    padding-top: 0.5rem;
+    font-size: 0.4rem !important;
+  }
+
+  tr {
+    text-align: center;
+    border: none;
+    border-bottom: none !important ;
+  }
+
+  .pt {
+    position: absolute !important;
+    left: 0 !important;
+    width: 0.3rem;
+    height: 0.3rem;
+    background-color: #26d395;
+  }
+
+  td {
+    font-size: 0.34rem !important;
+    padding: 0.2rem !important;
+  }
+}
+.down-row {
+  position: absolute;
+  bottom: 41%;
+  left: 1rem;
+  color: $darkColor;
+  font-size: smaller;
+}
+
+.bubbles {
+  .srl:first-child {
+    @include sircle(#ec5967, 1rem);
+    margin-left: 5rem;
+  }
+
+  .srl2 {
+    @include sircle(rgba(41, 248, 186, 0.911), 1.6rem);
+    margin-left: 2rem;
+    margin-right: 7rem;
+  }
+  .srl3 {
+    @include sircle(#ffa600, 1.9rem);
+    margin-left: 9rem;
+    position: absolute;
+    left: 14%;
+  }
+  .srl3::before {
+    @include sircle(#003f5cd2, 1rem);
+    content: "";
+    z-index: 3;
+    margin-left: 3rem;
+    position: absolute;
+    left: -81%;
+    top: 20%;
+  }
+  .srl3:nth-of-type(1) {
+    position: absolute;
+    left: 30%;
+    background-color: #265dd3de;
+  }
+
+  .srl4 {
+    @include sircle(#07a2adc4, 1.6rem);
+    margin-left: 2rem;
+    margin-right: 2rem;
+    position: absolute;
+    left: 71%;
+  }
+  .srl4::before {
+    @include sircle(#ff0c0c8f, 1rem);
+    content: "";
+    z-index: 3;
+    margin-left: 3rem;
+    position: absolute;
+    right: 81%;
+    top: 20%;
+  }
+}
+
+.c {
+  background-image: linear-gradient(
+    to right,
+    rgba(79, 220, 255, 0.582),
+    rgb(0, 183, 255),
+    rgb(72, 180, 212),
+    rgb(252, 72, 72) 50%,
+    rgb(252, 72, 72) 80%,
+    rgb(194, 10, 10)
+  ) !important;
+}
+.c::after {
+  color: #003f5c;
+  content: "material 0";
+  font-size: xx-small;
+  position: absolute;
+  left: 5%;
+  top: -220%;
+}
+
+.points-container {
+  position: absolute;
+  left: 20%;
+  top: 32%;
+  width: 3rem;
+}
+
+.points {
+  position: relative;
+
+  span {
+    position: absolute;
+    @include sircle(#2a1e9ee3, 0.5rem);
+  }
+}
+
+.pnts {
+  left: 64% !important;
+}
+
+.chart-wrapper {
+  margin: 1rem;
+}
+
+.hls-container {
+  margin-left: 3rem;
+  margin-right: 3rem;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .hr {
+    height: 0.01rem;
+    width: 600px;
+    background-color: red;
+  }
+
+  .underLines {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    border-bottom: $darkColor 0.15rem solid;
+  }
+
+  .vline {
+    font-size: xx-small;
+    color: $darkColor;
+    position: relative;
+    width: 0.7rem;
+    height: 3rem;
+    background: linear-gradient(
+      to top,
+      #96adb8,
+      #96adb8 20%,
+      #688d9f 20%,
+      #688d9f 40%,
+      #4c788d 40%,
+      #4c788d 60%,
+      #205068 60%,
+      #205068 85%,
+      #2c3e50 85%
+    );
+  }
+
+  .vline:nth-of-type(2) {
+    background: linear-gradient(
+      to top,
+      #96adb8,
+      #96adb8 40%,
+      #688d9f 40%,
+      #688d9f 70%,
+      #4c788d 70%,
+      #4c788d 90%,
+      #205068 90%,
+      #205068 95%,
+      #2c3e50 95%
+    );
+  }
+
+  .vline:nth-of-type(3) {
+    background: linear-gradient(
+      to top,
+      #96adb8,
+      #96adb8 10%,
+      #688d9f 10%,
+      #688d9f 20%,
+      #4c788d 20%,
+      #4c788d 30%,
+      #205068 60%,
+      #205068 85%,
+      #2c3e50 85%
+    );
+  }
+
+  .vline:nth-of-type(6) {
+    background: linear-gradient(
+      to top,
+      #96adb8,
+      #96adb8 10%,
+      #688d9f 10%,
+      #688d9f 20%,
+      #4c788d 20%,
+      #4c788d 30%,
+      #205068 60%,
+      #205068 85%,
+      #2c3e50 85%
+    );
+  }
+
+  .vline::after {
+    content: " name";
+    width: 1rem;
+    position: absolute;
+    text-align: center;
+    top: 6.5rem;
+    left: -33%;
+  }
+
+  .vline:not(.vline:last-of-type):before {
+    content: "";
+    @include sircle(#688d9f, 0.4rem);
+    position: absolute;
+    top: -1rem;
+    left: 336%;
+  }
+
+  .colors-container {
+    position: absolute;
+
+    bottom: 5%;
+    right: 0%;
+    span {
+      font-size: 0.4rem;
+    }
+    .color {
+      width: 1rem;
+      height: 0.2rem;
+    }
+  }
+}
+
+.suppliers-table {
+  width: 100%;
+  height: 11rem;
+  position: relative;
+  margin: 1.9rem;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  tbody {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    text-transform: lowercase;
+  }
+  tr {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: solid $g3 0.1rem !important;
+    height: 2rem;
+    align-content: center;
+  }
+
+  th {
+    color: $darkColor;
+    font-size: 0.7rem;
+  }
+
+  td {
+    font-size: 0.7rem;
+    color: #02202d !important;
+    text-align: center;
+  }
+}
+tbody::-webkit-scrollbar {
+  background-color: #dadada96;
+  width: 0.3rem;
+  scroll-behavior: smooth;
+}
+tbody::-webkit-scrollbar-thumb {
+  background-color: #003f5c;
+}

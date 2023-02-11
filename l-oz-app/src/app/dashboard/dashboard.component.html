@@ -1,0 +1,468 @@
+<div class="parent">
+  <div class="header">
+    <app-header></app-header>
+  </div>
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <section>
+    <h4>dashboard</h4>
+    <div class="dashboards">
+      <div class="total-P alerts head-hight">
+        <div class="head">
+          <img src="assets/total.png" />
+          <span>total production</span>
+        </div>
+        <div class="rate">
+          <div class="actual-production">
+            <div>5,000 <sub>km</sub></div>
+            <span>actual production</span>
+          </div>
+          <div class="planned-production">
+            <div>7,000 <sub>km</sub></div>
+            <span>planned production</span>
+          </div>
+        </div>
+        <div class="range">
+          <div></div>
+          75%
+        </div>
+      </div>
+      <div class="performance alerts head-hight">
+        <div class="head">
+          <img src="assets/ranges.png" /><span>performance indicator KPI</span>
+        </div>
+        <div class="ranges">
+          <div>
+            <circle-progress
+              [percent]="75"
+              [space]="-8"
+              [radius]="27"
+              [outerStrokeWidth]="8"
+              [innerStrokeWidth]="8"
+              [outerStrokeColor]="'#2d62ed'"
+              [innerStrokeColor]="'#e7e8ea'"
+              [animation]="true"
+              [animationDuration]="600"
+            ></circle-progress>
+            <span>avalability</span>
+          </div>
+          <div>
+            <circle-progress
+              [percent]="68"
+              [space]="-8"
+              [radius]="27"
+              [outerStrokeWidth]="8"
+              [innerStrokeWidth]="8"
+              [outerStrokeColor]="'#00D1DE'"
+              [innerStrokeColor]="'#e7e8ea'"
+              [animation]="true"
+              [animationDuration]="800"
+            ></circle-progress>
+            <span>performance</span>
+          </div>
+          <div>
+            <circle-progress
+              [percent]="25"
+              [space]="-8"
+              [radius]="27"
+              [outerStrokeWidth]="8"
+              [innerStrokeWidth]="8"
+              [outerStrokeColor]="'#EC5967'"
+              [innerStrokeColor]="'#e7e8ea'"
+              [animation]="true"
+              [animationDuration]="1000"
+            ></circle-progress>
+            <span>quality</span>
+          </div>
+        </div>
+      </div>
+      <div class="material-C">
+        <div class="total-P alerts head-hight">
+          <div class="head">
+            <img src="assets/leave.png" />
+            <span> Material Consumption</span>
+          </div>
+          <div class="rate ratemate">
+            <div class="actual-production">
+              <div>4,000 <sub>km</sub></div>
+              <span>actual conumption</span>
+            </div>
+            <div class="planned-production">
+              <div>8,000 <sub>km</sub></div>
+              <span>planned supply</span>
+            </div>
+          </div>
+          <div class="range">
+            <div></div>
+            75%
+          </div>
+        </div>
+      </div>
+      <div class="alerts right-bar head-hight">
+        <div class="head">
+          <div class="point"></div>
+          <span class="alert-title alerty">alerts</span>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-solid fa-shuttle-space"></i>
+            <span class="alert-type">machenes</span>
+          </div>
+          <div class="message-id-cont">
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-solid fa-shuttle-space"></i>
+            <span class="alert-type">machenes</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-solid fa-shuttle-space"></i>
+            <span class="alert-type">performance</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-solid fa-shuttle-space"></i>
+            <span class="alert-type">performance</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-solid fa-shuttle-space"></i>
+            <span class="alert-type">performance</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-solid fa-shuttle-space"></i>
+            <span class="alert-type">performance</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notifications right-bar head-hight">
+        <div class="head">
+          <div class="point" style="background-color: #00d1de"></div>
+          <span class="alert-title" style="color: #00d1de">notifications</span>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="alert-type">machenes</span>
+          </div>
+          <div class="message-id-cont">
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-regular fa-flag"></i>
+            <span class="alert-type">machenes</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-regular fa-circle-check"></i>
+            <span class="alert-type">performance</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span class="alert-type">performance</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span class="alert-type">performance</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon-alert">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span class="alert-type">performance</span>
+          </div>
+          <div>
+            <span class="message">confirm loz on machine</span>
+            <div class="id"><span>ID</span> <span>53362005</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="current-activity head-hight">
+        <div class="activity-head">
+          <div class="activity-title">
+            <i class="fa-solid fa-wave-square"></i>
+            <h5>current activity</h5>
+          </div>
+          <div class="activity-nav-group">
+            <div
+              (click)="onFunction()"
+              class="activity-nav"
+              [ngClass]="{ active: currentActivity == 'functions' }"
+            >
+              <i class="fa-solid fa-sitemap"></i>
+              <span>functions</span>
+            </div>
+            <div
+              (click)="onRoute()"
+              class="activity-nav"
+              [ngClass]="{ active: currentActivity == 'route' }"
+            >
+              <i class="fa-solid fa-route"></i>
+              <span>rout</span>
+            </div>
+            <div
+              (click)="onOrder()"
+              class="activity-nav"
+              [ngClass]="{ active: currentActivity == 'order' }"
+            >
+              <i class="fa-solid fa-bars-progress"></i> <span>job order</span>
+            </div>
+          </div>
+        </div>
+        <div class="routes" *ngIf="currentActivity == 'order'">
+          <div class="route">
+            <div class="route-number">job 05</div>
+            <div class="route-line">
+              <div class="line">
+                <div class="amount j" style="background-image: none"></div>
+              </div>
+            </div>
+          </div>
+          <div class="route">
+            <div class="route-number">job 04</div>
+            <div class="route-line">
+              <div class="line">
+                <div class="amount j" style="background-image: none"></div>
+              </div>
+            </div>
+          </div>
+          <div class="route">
+            <div class="route-number">job 03</div>
+            <div class="route-line">
+              <div class="line">
+                <div class="amount j" style="background-image: none"></div>
+              </div>
+            </div>
+          </div>
+          <div class="route">
+            <div class="route-number">job 02</div>
+            <div class="route-line">
+              <div class="line">
+                <div class="amount j" style="background-image: none"></div>
+              </div>
+            </div>
+          </div>
+          <div class="route">
+            <div class="route-number">job 01</div>
+            <div class="route-line">
+              <div class="line">
+                <div class="amount j" style="background-image: none"></div>
+              </div>
+            </div>
+          </div>
+          <div class="time-container">
+            <div class="time">
+              <span>today</span>
+              <span>03-27</span>
+              <span>03-32</span>
+              <span>03-52</span>
+              <span>04-10</span>
+              <span>04-55</span>
+            </div>
+          </div>
+        </div>
+        <div class="routes" *ngIf="currentActivity == 'route'">
+          <div class="route">
+            <div class="route-number">route 05</div>
+            <div class="route-line">
+              <div class="line">
+                <div class="amount"></div>
+              </div>
+            </div>
+          </div>
+          <div class="route">
+            <div class="route-number">route 04</div>
+            <div class="route-line">
+              <div class="line">
+                <div class="amount"></div>
+              </div>
+            </div>
+          </div>
+          <div class="route">
+            <div class="route-number">route 03</div>
+            <div class="route-line">
+              <div class="line"><div class="amount"></div></div>
+            </div>
+          </div>
+          <div class="route">
+            <div class="route-number">route 02</div>
+            <div class="route-line">
+              <div class="line"><div class="amount"></div></div>
+            </div>
+          </div>
+          <div class="route">
+            <div class="route-number">route 01</div>
+            <div class="route-line">
+              <div class="line"><div class="amount"></div></div>
+            </div>
+          </div>
+          <div class="time-container">
+            <div class="time">
+              <span>today</span>
+              <span>03-27</span>
+              <span>03-32</span>
+              <span>03-52</span>
+              <span>04-10</span>
+              <span>04-55</span>
+            </div>
+          </div>
+          <div class="colors-container">
+            <div class="color-mean">
+              <div class="color" style="background-color: #994f90"></div>
+              <span>drawing</span>
+              <div class="color" style="background-color: #ffa600"></div>
+              <span>drawing</span>
+              <div class="color" style="background-color: #a0c73a"></div>
+              <span>drawing</span>
+              <div class="color" style="background-color: #fb7644"></div>
+              <span>drawing</span>
+              <div class="color" style="background-color: #00ccf2"></div>
+              <span>drawing</span>
+              <div class="color" style="background-color: #0f8074"></div>
+              <span>drawing</span>
+            </div>
+          </div>
+        </div>
+        <div class="functions" *ngIf="currentActivity == 'functions'">
+          <div class="functi">
+            <div class="type">assemply</div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - assemply </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - mediuam </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span> 2200/2 essemply write armoring</span>
+            </div>
+          </div>
+          <div class="functi">
+            <div class="type">assemply-armoring</div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - assemply </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - mediuam </span>
+            </div>
+          </div>
+          <div class="functi">
+            <div class="type">drawing</div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - assemply </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - mediuam </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span> 2200/2 essemply write armoring</span>
+            </div>
+          </div>
+          <div class="functi">
+            <div class="type">extrusion</div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - assemply </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - mediuam </span>
+            </div>
+          </div>
+          <div class="functi">
+            <div class="type">insulation-extrusion</div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - assemply </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - mediuam </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span> 2200/2 essemply write armoring</span>
+            </div>
+          </div>
+          <div class="functi">
+            <div class="type">led</div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - assemply </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span>pourtier 2200/2 voltag - mediuam </span>
+            </div>
+            <div class="about">
+              <div class="point"></div>
+              <span> 2200/2 essemply write armoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

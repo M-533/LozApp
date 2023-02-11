@@ -1,0 +1,389 @@
+@import "../dashboard/dashboard.component.scss";
+@import "../resources/resources.component.scss";
+@import "../style-variables.scss";
+@import "../mixins.scss";
+
+.job-orders {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.order {
+  height: 72%;
+  width: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.columns {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 100%;
+  div:first-child {
+    border-radius: 0.2rem;
+    height: 70%;
+    width: 0.5rem;
+    background-color: $darkColor;
+  }
+  div:nth-of-type(2) {
+    border-radius: 0.2rem;
+    height: 70%;
+    width: 0.5rem;
+    background-color: $g3;
+  }
+}
+
+.order-name {
+  width: 100%;
+  font-size: 0.5rem;
+  text-align: center;
+}
+
+.alertNtif {
+  display: flex;
+  justify-content: space-around;
+  div {
+    display: flex;
+  }
+  span {
+    color: $g3;
+    cursor: pointer;
+  }
+  .point {
+    background-color: $g3 !important;
+  }
+}
+
+.alertActiv {
+  span {
+    color: rgba(255, 12, 12, 0.795);
+  }
+
+  .point {
+    background-color: rgba(255, 12, 12, 0.795) !important;
+  }
+}
+.notifActiv {
+  span {
+    color: rgba(15, 228, 182, 0.795);
+  }
+
+  .point {
+    background-color: rgba(15, 228, 182, 0.795) !important;
+  }
+}
+.suppliers {
+  grid-template-columns: 80%;
+
+  .supplier {
+    grid-template-columns: 20% 60% 30%;
+
+    .long-point {
+      height: 1.7rem;
+      width: 0.2rem;
+    }
+
+    .long-point::before {
+      content: "";
+      background-color: $darkColor;
+      width: 0.3rem;
+      height: 0.3rem;
+      border-radius: 50%;
+    }
+  }
+}
+.table-container {
+  margin: 1rem;
+}
+
+table {
+  overflow-x: hidden;
+  font-size: small;
+  display: block;
+  border-collapse: collapse;
+  overflow-y: auto;
+  position: relative;
+  margin: 2rem;
+
+  th {
+    color: $darkColor;
+    font-size: 0.59rem;
+    padding-bottom: 0.7rem;
+  }
+
+  tr {
+    padding: 1rem;
+    border-bottom: $g3 solid 0.03rem;
+  }
+
+  td {
+    padding: 0.35rem;
+    width: 5rem;
+    text-align: center;
+    font-size: 0.5rem;
+  }
+
+  img {
+    cursor: pointer;
+  }
+
+  i {
+    font-size: 0.72rem;
+    color: $lighterMain;
+  }
+}
+
+.icons-wrapper {
+  width: 7rem;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 2rem;
+  padding-right: 1rem;
+}
+
+.c {
+  background-image: linear-gradient(
+    to right,
+    rgba(17, 89, 107, 0.582),
+    rgb(24, 69, 87),
+    rgb(30, 77, 92),
+    rgb(252, 72, 72) 50%,
+    rgb(49, 14, 14) 80%,
+    rgb(32, 8, 8)
+  ) !important;
+}
+
+.add {
+  button {
+    background-color: #ffff;
+    color: #2e4a79;
+    font-size: 0.8rem !important;
+  }
+}
+.bigBtnActive {
+  button {
+    color: #ffff;
+    background-color: $lighterMain;
+  }
+}
+
+.circle-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 8rem;
+}
+
+.betweenSircles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  div {
+    height: 0.4rem;
+    background-color: #15aaa3ef;
+    width: 100%;
+    border-radius: 1rem;
+  }
+}
+
+table span {
+  font-size: 0.5rem;
+  color: $g3;
+}
+
+.flow-page {
+  grid-row: span 3;
+  grid-column: span 4;
+
+  display: grid;
+  grid-template-columns: 38% 37.3% (minmax(15rem, 1fr));
+  grid-template-rows: 30% 30% 1fr;
+  gap: 1rem;
+
+  i {
+    color: $darkColor;
+  }
+  & > div {
+    background-color: white;
+    box-shadow: #00000024 0px 0px 20px 0px;
+    border-radius: 0.8rem;
+  }
+}
+
+.flow-chart {
+  grid-row: span 3;
+  grid-column: span 2;
+}
+
+.lables-container {
+  grid-row: span 2;
+  color: $darkColor;
+}
+
+.lables {
+  height: 45%;
+  grid-template-columns: 20% 1fr;
+  gap: 0.5rem;
+  margin: 1rem;
+  display: grid;
+  font-size: x-small;
+
+  .lable1 {
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: $darkColor;
+    border-radius: 50%;
+    margin-left: 0.69rem;
+  }
+
+  .lable2 {
+    width: 1.7rem;
+    height: 0.12rem;
+    background-color: $darkColor;
+    margin-top: 0.3rem;
+    position: relative;
+    &::after {
+      content: "";
+      width: 0.4rem;
+      height: 0.4rem;
+      background-color: $darkColor;
+      border-radius: 50%;
+      position: absolute;
+      right: -2px;
+      top: -89%;
+    }
+  }
+
+  .lable3 {
+    margin-top: 0.2rem;
+    position: relative;
+    .small-circle {
+      @include sircle(red, 0.4rem);
+      position: absolute;
+      left: 0;
+    }
+  }
+  .lable4 {
+    margin-top: 0.2rem;
+    position: relative;
+    .border-circle {
+      @include sircle(transparent, 0.4rem);
+      position: absolute;
+      left: 0;
+      border: solid 0.3px red;
+    }
+  }
+
+  .lable5 {
+    position: relative;
+    font-size: small;
+    &::after {
+      content: "";
+      width: 0.2rem;
+      height: 0.6rem;
+      background-color: $darkColor;
+      position: absolute;
+      top: 27%;
+    }
+    &::before {
+      content: "";
+      width: 0.2rem;
+      height: 0.6rem;
+      background-color: $darkColor;
+      position: absolute;
+      top: 27%;
+    }
+  }
+
+  .lable6 {
+    position: relative;
+    font-size: small;
+    &::before {
+      content: "";
+      width: 0.2rem;
+      height: 0.6rem;
+      background-color: $darkColor;
+      position: absolute;
+      top: 27%;
+    }
+  }
+
+  .lable7 {
+    position: relative;
+    font-size: small;
+    opacity: 0.5;
+
+    &::before {
+      content: "";
+      width: 0.2rem;
+      height: 0.6rem;
+      background-color: $darkColor;
+      opacity: 0.5;
+      position: absolute;
+      top: 27%;
+    }
+  }
+}
+
+.layers {
+  grid-column: 3/4;
+  grid-row: 3/3;
+}
+
+.functions-lables {
+  margin: 0.6rem;
+}
+
+.balles-labels {
+  margin-top: 0.55rem;
+  font-size: xx-small;
+  display: grid;
+  grid-template-columns: 10% 40% 10% 40%;
+  gap: 0.3rem;
+
+  .ball {
+    margin-left: 0.4rem;
+    margin-top: 0.2rem;
+    @include sircle(red, 0.3rem);
+  }
+}
+
+.layers-wrapper {
+  font-size: x-small;
+  display: grid;
+  grid-template-columns: 6% 40% 6% 37%;
+  gap: 0.6rem;
+  margin: 1rem;
+  color: $darkColor;
+  .layer {
+    background-color: $darkColor;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 0.22rem;
+  }
+}
+.product-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.tran-back {
+  background-color: transparent;
+  width: 46rem;
+  height: 26rem;
+  z-index: 22;
+  position: absolute;
+  top: 30%;
+  left: 22%;
+}

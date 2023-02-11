@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="intro-part">
+    <div class="title">
+      <h2>one platform for managing all</h2>
+      <h1>manufacturing aspects</h1>
+    </div>
+    <div class="circles">
+      <div class="center">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="icons">
+      <img src="assets/Resources.png" />
+      <img src="assets/Manufacturing.png" />
+      <img src="assets/Machines.png" />
+
+      <img src="assets/Planning.png" />
+      <img src="assets/Issues.png" />
+      <img src="assets/settings.png" />
+    </div>
+  </div>
+
+  <div class="log-part">
+    <div class="name">
+      <div class="name-container">
+        <h2>loz</h2>
+        <img src="assets/logo.svg" />
+      </div>
+    </div>
+
+    <form [formGroup]="logForm" (ngSubmit)="onSubmit()">
+      <div class="form-container">
+        <div class="email">
+          <input
+            class="eInput"
+            type="email"
+            formControlName="email"
+            (click)="emailInput()"
+            required
+            placeholder="             Email "
+          />
+          <i *ngIf="eIcon" class="fa-regular fa-envelope"></i>
+          <br />
+          <span
+            *ngIf="
+              !logForm.get('email')!.valid && !logForm.get('email')!.untouched
+            "
+            style="color: red; font-size: 0.7rem"
+          >
+            please enter a valid email</span
+          >
+        </div>
+        <div class="pass">
+          <input
+            type="password"
+            formControlName="password"
+            (click)="onPass()"
+            required
+            placeholder="            password"
+          />
+          <i *ngIf="pIcon" class="fa-solid fa-lock"></i>
+        </div>
+        <div class="submit">
+          <button
+            type="submit"
+            [disabled]="logForm.invalid"
+            [ngClass]="{ can: logForm.valid }"
+          >
+            login
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
